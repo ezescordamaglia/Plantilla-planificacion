@@ -1,34 +1,28 @@
 \documentclass[
 11pt, % The default document font size, options: 10pt, 11pt, 12pt
-codirector, % Uncomment to add a codirector to the title page
+%codirector, % Uncomment to add a codirector to the title page
 ]{charter} 
 
 
-
-
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Título del proyecto} 
+\titulo{Modelo de predicción de mortalidad accesible por servicio web y administrado por plataforma de gestión integral} 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
-\posgrado{Carrera de Especialización en Sistemas Embebidos} 
-%\posgrado{Carrera de Especialización en Internet de las Cosas} 
-%\posgrado{Carrera de Especialización en Intelegencia Artificial}
-%\posgrado{Maestría en Sistemas Embebidos} 
-%\posgrado{Maestría en Internet de las cosas}
+\posgrado{Carrera de Especialización en Inteligencia Artificial}
 
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
-\autor{Nombre del Autor} 
+\autor{Ezequiel Scordamaglia} 
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
 \director{Nombre del Director}
 \pertenenciaDirector{pertenencia} 
 % FIXME:NO IMPLEMENTADO EL CODIRECTOR ni su pertenencia
-\codirector{John Doe} % para que aparezca en la portada se debe descomentar la opción codirector en el documentclass
+%\codirector{John Doe} % para que aparezca en la portada se debe descomentar la opción codirector en el documentclass
 \pertenenciaCoDirector{FIUBA}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
-\cliente{Nombre del cliente}
-\empresaCliente{Empresa del cliente}
+\cliente{Cliente Confidencial}
+\empresaCliente{Organización Confidencial}
 
 % Nombre y pertenencia de los jurados, se pueden usar el cualquier lugar del documento con el comando \jurunoname, \jurdosname y \jurtresname y \perteunoname, \pertedosname y \pertetresname.
 \juradoUno{Nombre y Apellido (1)}
@@ -38,9 +32,9 @@ codirector, % Uncomment to add a codirector to the title page
 \juradoTres{Nombre y Apellido (3)}
 \pertenenciaJurTres{pertenencia (3)}
  
-\fechaINICIO{30 de abril de 2021}		%Fecha de inicio de la cursada de GdP \fechaInicioName
-\fechaFINALPlan{18 de junio de 2021} 	%Fecha de final de cursada de GdP
-\fechaFINALTrabajo{15 de mayo de 2022}	%Fecha de defensa pública del trabajo final
+\fechaINICIO{17 de octubre de 2023}		%Fecha de inicio de la cursada de GdP \fechaInicioName
+\fechaFINALPlan{--------COMPLETAR---------} 	%Fecha de final de cursada de GdP
+\fechaFINALTrabajo{--------COMPLETAR---------}	%Fecha de defensa pública del trabajo final
 
 
 \begin{document}
@@ -69,7 +63,7 @@ codirector, % Uncomment to add a codirector to the title page
 \rowcolor[HTML]{C0C0C0} 
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
-%1      & Se completa hasta el punto 4 inclusive                 & dd/mm/aaaa \\ \hline
+1      & Se completa hasta el punto 4 inclusive                 & 26 de octubre de 2023 \\ \hline
 %2      & Se completa hasta el punto 7 inclusive
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
@@ -92,7 +86,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en \textcolor{red}{la implementación de un prototipo de un sistema de control de temperatura de un calefón}, y tendrá un presupuesto preliminar estimado de \textcolor{red}{600} h de trabajo y \textcolor{red}{\$XXX}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el Lic. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en el desarrollo de un modelo de predicción de mortalidad, una interfaz por servicio web y su configuración en una plataforma de gestión integral, y tendrá un presupuesto preliminar estimado de \textcolor{red}{600} h de trabajo y \textcolor{red}{\$XXX}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -115,52 +109,29 @@ Se adjunta a esta acta la planificación inicial.
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
+Este proyecto planteado como trabajo final se realizará para la organización Grupo DUAM en la cual trabajo, donde nos dedicamos a desarrollar software a medida para distintos clientes.
+Uno de los objetivos de este proyecto es incursionar en desarrollos que utilicen las nuevas tecnologías, como son la inteligencia artificial y el análisis de datos, para poder ofrecer nuevas soluciones a problemas conocidos y desarrollar productos innovadores.
+Para este proyecto, seleccionamos a uno de nuestros clientes, una empresa médica, que posee centros de atención en todo el país. No podemos revelar su identidad por cuestiones de confidencialidad. Ellos manejan una gran base de datos de pacientes,  donde se registran distintos datos médicos asociados a ellos: estudios médicos, hospitalizaciones, medicamentos prescritos, y muchos otros.
+Es fundamental en la medicina conocer el estado de salud de los pacientes y evaluar los riesgos asociados a ellos. Esto le permite a los profesionales de la salud ajustar el tratamiento y los medicamentos que  prescriben. Pero predecir los riesgos que puede tener un paciente no es tarea sencilla. La complejidad de las condiciones de salud y la gran cantidad de datos clínicos disponibles hacen extremadamente difícil realizar una predicción de mortalidad de manera manual.
+En este contexto, surge la necesidad de desarrollar un modelo predictivo de mortalidad que pueda aprovechar el poder de la inteligencia artificial y del análisis de datos. Estas ayudarían a realizar un pronóstico rápido y preciso del nivel de riesgo que tiene un paciente.
 
-\begin{consigna}{red} % El bloque "consigna" se usa para poner texto en rojo y dar una pequeña ayuda sobre cómo completar la sección. En cada entrega parcial deben eliminar los comandos begin y end del bloque consigna de las secciones que hayan completado.
-
-El objetivo es que el lector en una o dos páginas entienda de qué trata el proyecto y cuáles son sus desafíos, cuál es la motivación para realizarlo y su importancia.
-
-Se debe introducir el contexto del proyecto, el estado del arte en la temática, describir la propuesta de valor, cúal es el problema que atiende y cuál es la solución que se propone. Se debe dar una descripción funcional de la solución que incluya un diagrama en bloques.
-
-Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
-
-\begin{itemize}
-	\item ¿Cuál es el contexto del proyecto, es un emprendimiento personal, un proyecto para una empresa, es parte del programa de vinculación con empresas del posgrado?
-	\item ¿Existen o aplican condiciones especiales al proyecto, financiamiento de algún programa público o privado, acuerdos de confidencialidad, acuerdos sobre la propiedad intelectual de los entregables u otros?
-	\item ¿Cómo se compara la solución propuesta con el estado del arte en el campo de aplicación? ¿En qué aspectos destaca?
-	\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
-	\item ¿En qué estado del ciclo de vida está la solución que se propone?
-	\item ¿Cuáles son las características del cliente (el adoptante de los entregables del proyecto) qué valora, qué necesita?
-	\item ¿Por dónde pasa la innovación?
-\end{itemize}
-
-La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema} y descripción funcional de la solución propuesta.
-
-Las figuras se deben mencionar en el texto ANTES de que aparezcan con una frase como la siguiente: ``En la Figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''.  La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
+En este trabajo, se propone una solución integral para los problemas analizados anteriormente. Por un lado se plantea la creación de un modelo que devuelva una predicción de riesgo de mortalidad de un paciente, utilizando como base de información los datos de miles de pacientes que estuvieron en la misma situación con anterioridad. Para esto se procesarán los datos disponibles, se estrenarán varios modelos de \textit{machine learning} y \textit{deep learning}, se evaluarán sus métricas y se seleccionarán los candidatos que logren los mejores resultados.
+Por otra parte, se incluyen en el proyecto dos piezas más, que son fundamentales para lograr el objetivo principal. Una de ellas es la utilización de una plataforma de gestión integral. Esta nos permitirá disponibilizar el modelo en un servidor productivo y ejecutar tareas de mantenimiento y re-entrenamiento cuando se detecten cambios en los datos. Y la segunda es una interfaz de acceso al modelo, del tipo servicio web, que recibirá datos del estado actual de los pacientes y devolverá predicciones.
+Las tres piezas en conjunto: el modelo predictivo, la plataforma de gestión integral y la interfaz, intentarán resolver los problemas detectados. En la Figura \ref{fig:diagBloques} se muestra un diagrama de la solución propuesta.
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.5\textwidth]{./Figuras/diagBloques.png}
+\includegraphics[width=.6\textwidth]{./Figuras/DiagramaDeBloques.pdf}
 \caption{Diagrama en bloques del sistema}
 \label{fig:diagBloques}
 \end{figure}
 
-\vspace{25px}
-
-El tamaño de la tipografía en TODAS las figuras debe ser adecuado para que NO pase lo que ocurre acá, donde el lector debe esforzarse para poder leer el texto. Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama, preferentemente en la gama de colores pastel.
-\end{consigna}
+El uso de la inteligencia artificial y el análisis de datos está en auge actualmente. Muchas industrias de distintos campos ya están utilizando estas técnicas y tecnologías, obteniendo resultados sorprendentes. Estas resuelven muy bien la tarea de detectar patrones en grandes conjuntos de datos, por lo que son ideales para resolver el problema planteado.
+Para lograr generar predicciones es necesario utilizar datos históricos en el entrenamiento, donde los modelos descubren relaciones entre ellos. Luego, por métodos estadísticos, se podrá predecir eventos futuros basados en esas relaciones.
+En la medicina ya se han utilizado para la predicción del desarrollo de enfermedades como la diabetes o el cáncer, y también para detectar formas extrañas en imágenes. Y dado ya que se cuenta con los datos históricos de miles de pacientes, sería beneficioso la creación del modelo predictivo de mortalidad, que brinde esta información tan importante a todo el personal médico. Esta información ayudará a los médicos a guiar su trabajo sobre los pacientes más críticos y, en última instancia, salvará vidas.
 
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
-
-\begin{consigna}{red} % este comando se debe borrar para la entrega, junto con la contraparte \end{consigna}{red} 
- 
-\textbf{Nota importante:} borrar esto y todas las consignas en color rojo antes de entregar este documento). Esto se hace eliminando el par de comandos que forman el bloque consigna, \verb!\begin{consigna}{red}! y \verb!\end{consigna}{red}! del código. 
- 
-Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos. Si se considera que una persona cumple dos o más roles, entonces solo dejarla en el rol más importante. 
-
-Por ejemplo, si una persona es Cliente pero también colabora u orienta, dejarla solo como Cliente. Si una persona es el Responsable, no debe ser colocado también como miembro del equipo.
-
 
 \begin{table}[ht]
 %\caption{Identificación de los interesados}
@@ -169,75 +140,54 @@ Por ejemplo, si una persona es Cliente pero también colabora u orienta, dejarla
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
-Auspiciante   &                   &              	&        	\\ \hline
-Cliente       & \clientename      &\empclientename	&        	\\ \hline
-Impulsor      &                   &              	&        	\\ \hline
+Cliente       & \clientename      &\empclientename	& Asesora de Presidencia       	\\ \hline
+Impulsor      & Eugenio Bellia \newline	Fabio Rosellini  & Grupo DUAM  \newline Grupo DUAM &  Líderes de proyecto \\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
-Colaboradores &                   &              	&        	\\ \hline
+Colaboradores & Colaborador Confidencial      & \empclientename 	& Gerente de Sistemas  \\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director Trabajo final \\ \hline
-Equipo        & miembro1 \newline 
-				miembro2          &              	&        	\\ \hline
-Opositores    &                   &              	&        	\\ \hline
-Usuario final &                   &              	&        	\\ \hline
+Usuario final & Usuario Confidencial  & \empclientename  	& Usuario del sistema  	\\ \hline
 \end{tabularx}
 \end{table}
 
-El Director suele ser uno de los Orientadores.
-
-No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
-
-No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
-
-Es deseable listar a continuación las principales características de cada interesado.
- 
-Por ejemplo:
 \begin{itemize}
-	\item Auspiciante: es riguroso y exigente con la rendición de gastos. Tener mucho cuidado con esto.
-	\item Equipo: Juan Perez, suele pedir licencia porque tiene un familiar con una enfermedad. Planificar considerando esto.
-	\item Orientador: María Gómez va a poder ayudar mucho con la definición de los requerimientos.
+	\item Cliente: No tiene mucho tiempo para dedicarle al proyecto, pero puede aportar conocimientos médicos para seleccionar las características mas importantes que tengan relación con la mortalidad de los pacientes. 
+	\item Impulsor: Tienen total disponibilidad para el proyecto.
+	\item Colaboradores: No tiene mucho tiempo para dedicarle al proyecto, pero es quien nos dará permiso para la utilización de los datos.
+	\item Orientador: Puede ayudar mucho en el tratamiento de los datos antes de entrenar los modelos.
+	\item Usuario final: Necesitará que la predicciones que realiza el modelo estén disponibles en todo momento.
 \end{itemize}
-
-\end{consigna} % este comando se debe borrar para la entrega, junto con la contraparte \begin{consigna}{red}
-
 
 
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
 
-\begin{consigna}{red}
-¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
-
-Se recomienda que sea solo un párrafo que empiece diciendo ``El propósito de este proyecto es...''.
-\end{consigna}
+El propósito de este proyecto es la creación de un modelo de predicción de mortalidad que aproveche la inteligencia artificial y el análisis de datos para ofrecer pronósticos precisos sobre el riesgo de mortalidad de pacientes en un entorno médico. Este modelo se basará en datos históricos de miles de pacientes y utilizará técnicas de \textit{machine learning} y \textit{deep learning} para identificar patrones y relaciones en esos datos. Además, se incluyen dos componentes adicionales: la utilización de una plataforma de gestión integral que permitirá implementar y mantener el modelo en un servidor productivo, y una interfaz de acceso que recibirá datos de pacientes y devolverá predicciones. En conjunto, estos elementos buscan resolver el desafío de predecir el riesgo de mortalidad de manera más eficiente y ayudar a los profesionales de la salud en la toma de decisiones críticas relacionadas con el tratamiento de los pacientes. 
 
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
 
-\begin{consigna}{red}
-¿Qué se incluye y que no se incluye en este proyecto?
+El presente proyecto incluye la creación de un modelo de predicción de mortalidad, la instalación y configuración de una plataforma de gestión, que permita administrar las versiones del modelo, y el desarrollo de una interfaz que actúe como nexo entre el usuario final y el modelo predictivo.
+Como tareas adicionales, se incluyen también la extracción de los datos de los sistemas del cliente, su procesamiento, el entrenamiento de los modelos y la evaluación de sus métricas. 
+Cuando finalice la etapa de entrenamiento, se realizarán tareas de despliegue del modelo. También se desarrollará un proceso que envíe automáticamente pedidos de predicciones de todos los pacientes activos cada cierto tiempo al modelo, para que el usuario final cuente con un reporte actualizado en todo momento.
 
-Se refiere al trabajo a hacer para entregar el producto o resultado especificado. 
-
-Explicitar todo lo quede comprendido dentro del alcance del proyecto.
-
-Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
-
-\end{consigna}
+El presente proyecto no incluye procesos que disparen el re-entrtenamiento automático ante cambios en los datos. El re-entrenamiento del modelo se realizará manualmente por un operador cuando sea necesario.
 
 
 \section{5. Supuestos del proyecto}
 \label{sec:supuestos}
 
-\begin{consigna}{red}
-``Para el desarrollo del presente proyecto se supone que: ...''
+Para el desarrollo del presente proyecto se supone que:
 
 \begin{itemize}
-	\item Supuesto 1
-	\item Supuesto 2...
+	\item Se tiene acceso a los datos médicos de los pacientes.
+	\item Se cuenta con un conjunto inicial de datos lo suficientemente grande y representativo para entrenar los modelos de inteligencia artificial de manera efectiva.
+	\item Se dispone de un ambiente donde poder desplegar el proyecto para realizar predicciones.
+	\item Se dispone de tiempo en horario laboral para avanzar en el proyecto.
+	\item Se dispone de los equipos necesarios para realizar el procesamiento de los datos y el entrenamiento de los modelos.
+	\item No se requiere el modelo predictivo con urgencia por el cliente.
+	\item Se cuenta con un responsable médico que dé soporte en la selección de variables médicas a utilizar en el entrenamiento de los modelos y también en la interpretación clínica de las predicciones realizadas.
+	\item Se mantendrá la protección de datos sensibles de los pacientes y del cliente en todo momento.		
 \end{itemize}
-
-Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
-\end{consigna}
 
 \section{6. Requerimientos}
 \label{sec:requerimientos}
