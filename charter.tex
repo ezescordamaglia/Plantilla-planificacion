@@ -64,7 +64,7 @@
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
 1      & Se completa hasta el punto 4 inclusive                 & 26 de octubre de 2023 \\ \hline
-%2      & Se completa hasta el punto 7 inclusive
+2      & Se completa hasta el punto 9 inclusive					& 3 de noviembre de 2023 \\ \hline
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
 %		  Así                                                    & dd/mm/aaaa \\ \hline
@@ -86,7 +86,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Lic. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', y consistirá esencialmente en la incorporación a la organización de nuevas herramientas para el desarrollo de soluciones que utilicen inteligencia artificial y análisis de datos, y que ofrezcan valor agregado a los clientes. Se tomará como prueba piloto el desarrollo de un modelo que prediga el nivel de riego de mortalidad de un paciente en un entorno médico. El mismo tendrá un presupuesto preliminar estimado de 600 h de trabajo y \textcolor{red}{\$1.500.000}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el Lic. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', y consistirá esencialmente en la incorporación a la organización de nuevas herramientas para el desarrollo de soluciones que utilicen inteligencia artificial y análisis de datos, y que ofrezcan valor agregado a los clientes. Se tomará como prueba piloto el desarrollo de un modelo que prediga el nivel de riego de mortalidad de un paciente en un entorno médico. El mismo tendrá un presupuesto preliminar estimado de 600 h de trabajo y \textcolor{red}{\$2.800.000}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -119,7 +119,7 @@ El desarrollo de este tipo de modelos predictivos, administrados por una platafo
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.6\textwidth]{./Figuras/DiagramaDeBloques.pdf}
+\includegraphics[width=.7\textwidth]{./Figuras/DiagramaDeBloques.pdf}
 \caption{Diagrama en bloques del sistema}
 \label{fig:diagBloques}
 \end{figure}
@@ -141,17 +141,17 @@ El desarrollo de este proyecto tendría dos resultados importantes: dotar a nues
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Rol           & Nombre y Apellido & Organización   & Puesto        \\ \hline
-Cliente       & \clientename      & \empclientename & Director      \\ \hline
+Cliente       & \begin{tabular}[c]{@{}l@{}}\clientename \\ Fabio Rosellini\end{tabular}      & \empclientename & Directores      \\ \hline
 Responsable   & \authorname       & FIUBA           & Alumno        \\ \hline
-Colaboradores & \parbox{4.1cm}{Colaborador confidencial \\ Colaborador confidencial}  & \parbox{4.2cm}{Organización confidencial \\ Organización confidencial} & \parbox{4.2cm}{Gerente de Sistemas \\ Asesor de Presidencia} \\ \hline
+Colaboradores & \begin{tabular}[c]{@{}l@{}}Colaborador 1 \\ Colaborador 2\end{tabular} &  Empresa Médica  & \begin{tabular}[c]{@{}l@{}}Gerente de Sistemas \\ Asesor de Presidencia\end{tabular} \\ \hline
 Orientador    & \supname          & \pertesupname    & Director Trabajo final \\ \hline
-Usuario final & Personal Médico   & Organización confidencial  & Usuario del sistema   \\ \hline
+Usuario final & Personal Médico y Administrativo   & Empresa Médica  & Usuario del sistema   \\ \hline
 \end{tabularx}
 \end{table}
 
 \begin{itemize}
 	\item Cliente: Está a favor del desarrollo de este proyecto para impulsar la organización a nuevos mercados y/o ofrecerle desarrollos innovadores a los clientes actuales.
-	\item Colaboradores: El Asesor de presidencia no tiene mucho tiempo para dedicarle al proyecto, pero puede aportar conocimientos médicos para seleccionar las características mas importantes que tengan relación con la mortalidad de los pacientes. Está a favor del desarrollo del proyecto y aportará lo que sea necesario. El Gerente de Sistemas tampoco tiene mucho tiempo para dedicarle al proyecto, pero es quien nos dará permiso para la utilización de los datos. Como no solicitó el desarrollo del proyecto puede que demore en responder o en tomar decisiones cuando se realice la integración.
+	\item Colaboradores: El Asesor de presidencia no tiene mucho tiempo para dedicarle al proyecto, pero puede aportar conocimientos médicos para seleccionar las características mas importantes que tengan relación con la mortalidad de los pacientes. Está a favor del desarrollo del proyecto y aportará lo que sea necesario. El Gerente de Sistemas tampoco tiene mucho tiempo para dedicarle al proyecto, pero es quien nos dará permiso para la utilización de los datos. Como no solicitó el desarrollo del proyecto puede que demore en responder si se le consulta algo referido a la infraestructura.
 	\item Orientador: Puede ayudar mucho en el tratamiento de los datos antes de entrenar los modelos.
 	\item Usuario final: Necesitará que la predicciones que realiza el modelo estén disponibles en todo momento.
 \end{itemize}
@@ -194,8 +194,6 @@ Para el desarrollo del presente proyecto se supone que:
 \section{6. Requerimientos}
 \label{sec:requerimientos}
 
-\begin{consigna}{red}
-
 \begin{enumerate}
 	\item Requerimientos funcionales
 		\begin{enumerate}
@@ -203,41 +201,60 @@ Para el desarrollo del presente proyecto se supone que:
 			\item La interfaz por servicio web deberá recibir datos médicos de uno o varios pacientes y devolver las predicciones asociadas a ellos.			
 			\item El modelo predictivo deberá tener una precisión de al menos un 75\%.
 			\item El proceso que solicita predicciones y genera el reporte al usuario deberá poder ejecutarse automáticamente cada cierto período de tiempo.		
-			\item Las predicciones individuales que realice el modelo deberán generarse en cuestión de segundos.
-			\item El modelo	deberá estar disponible en todo momento.
-			\item Durante el entrenamiento del modelo se deberá resguardar la confidencialidad de los datos de los pacientes.
 			\item El reporte de predicciones que le llegue al usuario final deberá tener un formato claro y comprensible.
+		\end{enumerate}
+	\item Requerimientos de datos a utilizar
+		\begin{enumerate}		
+		\item Los datos a utilizar para el entrenamiento del modelo deben estar disponibles para los procesos automáticos que re-entrenen al modelo.
+		\item Durante el entrenamiento del modelo se deberá resguardar la confidencialidad de los datos de los pacientes.		
 		\end{enumerate}
 	\item Requerimientos de documentación
 		\begin{enumerate}
+			\item Redactar una memoria técnica con la información del proyecto.
 			\item La documentación de la interfaz por servicio web deberá incluir la lista de métodos disponibles con su detalle.
-			\item La documentación del modelo predictivo deberá incluir el lenguaje de programación con el que se desarrolló, las librerías utilizadas, una descripción del procesamiento realizado sobre los datos recibidos y los modelos que se compararon en la etapa de desarrollo.
-		\end{enumerate}
+			\item La documentación del modelo predictivo incluirá cual es el origen de la fuente de datos para el entrenamiento,  las características que se usarán y los pasos para ejecutar un re-entrenamiento del modelo.
+		\end{enumerate}		
 \end{enumerate}
-
-\end{consigna}
 
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
 
-\begin{consigna}{red}
+Para poder estimar la cantidad de puntos de historia que representa cada historia de usuario se usarán los siguientes criterios y grados:
 
-Se describirán una serie de historias de usuario clasificadas con un puntaje que va del 1 al 5 e indican la importancia que tienen a nivel global en el contexto de este proyecto.
+\begin{itemize}
+	\item Dificultad
+	\begin{itemize}
+		\item Baja: 1 punto
+		\item Media: 3 puntos
+		\item Alta: 5 puntos
+	\end{itemize}
+	\item Complejidad
+	\begin{itemize}
+		\item Baja: 2 puntos
+		\item Media: 5 puntos
+		\item Alta: 7 puntos
+	\end{itemize}
+	\item Incertidumbre
+	\begin{itemize}
+		\item Baja: 1 punto
+		\item Media: 5 puntos
+		\item Alta: 10 puntos
+	\end{itemize}
+\end{itemize}
 
-Como director de la empresa Grupo DUAM quiero contar con un ambiente en el cual se puedan incluir nuevos modelos predictivos que resuelvan las problemáticas de mis clientes y un equipo capacitado para responder a esa demanda. (5)
+El puntaje final de cada historia de usuario será calculado como el número de la secuencia de Fibonacci más próximo mayor o igual a la suma de las calificaciones en los 3 criterios.
 
-Como personal médico de la empresa cliente que colabora en la creación del modelo predictivo, quiero contar con un reporte de predicciones de riesgos de mortalidad de todos los pacientes de mi centro, para poder realizar ajustes en los tratamientos y medicaciones prescritas. (4)
-
-Como director medico nacional de la empresa cliente que colabora en la creación del modelo predictivo, quiero contar con un reporte de predicciones de riesgos de mortalidad de todos los pacientes de la red, para realizar estadísticas y comparaciones entre los centros, aplicando directivas para mejorar la situación en cada uno. (3)
-
-\end{consigna}
+\begin{itemize}
+	\item Como director de la empresa Grupo DUAM, quiero contar con un ambiente en el cual se puedan incluir nuevos modelos predictivos que resuelvan las problemáticas de mis clientes, que sea sencilla y fácil de configurar. (3+5+10 = 18 → 21 puntos)
+	\item Como desarrollador de la empresa Grupo DUAM, quiero poder reutilizar los componentes que se desarrollen en proyectos de otros clientes. (3+2+5 = 10 → 13 puntos)
+	\item Como médico de centro de la empresa médica, quiero contar con un reporte actualizado de riesgos de mortalidad de los pacientes de mi centro, para poder realizar ajustes en los tratamientos y medicaciones prescritas. (1+5+1 = 7 → 8 puntos)
+	\item Como gerente de sistemas de la empresa médica, quiero poder realizar el despliegue del modelo predictivo en producción de manera simple y sencilla. (3+5+1 = 9 → 13 puntos)
+\end{itemize}
 
 \section{8. Entregables principales del proyecto}
 \label{sec:entregables}
 
-\begin{consigna}{red}
-
-Los entregables del proyecto son (ejemplo):
+Los entregables del proyecto son:
 
 \begin{itemize}
 	\item Documentación del servicio web
@@ -249,42 +266,44 @@ Los entregables del proyecto son (ejemplo):
 	\item Informe final
 \end{itemize}
 
-\end{consigna}
-
 \section{9. Desglose del trabajo en tareas}
 \label{sec:wbs}
 
-\begin{consigna}{red}
-El WBS debe tener relación directa o indirecta con los requerimientos.  Son todas las actividades que se harán en el proyecto para dar cumplimiento a los requerimientos. Se recomienda mostrar el WBS mediante una lista indexada:
-
 \begin{enumerate}
-\item Grupo de tareas 1
+\item Desarrollo del modelo predictivo de mortalidad (270 h).
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas h)
+	\item Extracción y procesamiento de datos médicos (90 h).
+	\item Entrenamiento de modelos (120 h).
+	\item Evaluación de métricas de los modelos (40 h).
+	\item Selección de los modelos candidatos (20 h).
 	\end{enumerate}
-\item Grupo de tareas 2
+\item Desarrollo de la interfaz por servicio web (80 h).
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
+	\item Diseño de la interfaz (20 h).
+	\item Implementación de la interfaz (60 h).
 	\end{enumerate}
-\item Grupo de tareas 3
+\item Instalación y configuración de la plataforma de gestión de modelos (120 h).
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
-	\item Tarea 4 (tantas h)
-	\item Tarea 5 (tantas h)
+	\item Investigación de plataformas de gestión de modelos disponibles (10 h).
+	\item Instalación de plataforma de gestión seleccionada (30 h).
+	\item Configuración de ambientes para despliegue de modelos (20 h).
+	\item Creación de un archivo que automatice el re-entrenamiento del modelo (60 h).
+	\end{enumerate}
+\item Desarrollo del proceso automático para solicitar predicciones y generar reportes (80 h).
+	\begin{enumerate}
+	\item Desarrollo del proceso que recupere datos, llame al servicio web y genere el reporte (60 h).
+	\item Pruebas de automatización de llamadas al modelo (20 h).
+	\end{enumerate}
+\item Documentación (100 h).
+	\begin{enumerate}
+	\item Documentación del servicio web (20 h).
+	\item Documentación del modelo predictivo (30 h).
+	\item Documentación de informe de avance (20 h).
+	\item Informe final del proyecto (30 h).
 	\end{enumerate}
 \end{enumerate}
 
-Cantidad total de horas: (tantas h)
-
-Se recomienda que no haya ninguna tarea que lleve más de 40 h. 
-
-\end{consigna}
+Cantidad total de horas: 650 h
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}

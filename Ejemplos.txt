@@ -1,0 +1,13 @@
+Tabla de 3 columnas:
+
+\begin{table}[ht]
+\begin{tabularx}{\linewidth}{@{}|c|c|X|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+\textbf{Puntaje} & \textbf{Riesgo} & \textbf{Descripción} \\ \hline
+1 & bajo & Son aquellos detalles menores o implementaciones sencillas, se estima resolver en horas o en un día como máximo. \\ \hline
+3 & medio & Su ejecución se estima que puede tomar aproximadamente una semana. \\ \hline
+5 & alto & Se estima que trabajar sobre este tipo de historia implica más de un mes de trabajo. \\ \hline
+8 & muy alto & Son las historias más complejas o difíciles de implementar. Este tipo de historia pueden llevar varios meses. \\ \hline
+\end{tabularx}
+\end{table}
