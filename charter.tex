@@ -5,13 +5,13 @@
 
 
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Actualización Tecnológica de la Organización y Creación de un Modelo de Predicción de Mortalidad como Prueba Piloto} 
+\titulo{Construcción de un modelo para predecir la mortalidad en pacientes en diálisis renal} 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
 \posgrado{Carrera de Especialización en Inteligencia Artificial}
 
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
-\autor{Ezequiel Scordamaglia} 
+\autor{Lic. Ezequiel Scordamaglia} 
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
 \director{Nombre del Director}
@@ -65,10 +65,10 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios 
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
 1      & Se completa hasta el punto 4 inclusive                 & 26 de octubre de 2023 \\ \hline
 2      & Se completa hasta el punto 9 inclusive					& 3 de noviembre de 2023 \\ \hline
+3      & Se completa hasta el punto 12 inclusive                & 13 de noviembre de 2023 \\ \hline
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
 %		  Así                                                    & dd/mm/aaaa \\ \hline
-%3      & Se completa hasta el punto 11 inclusive                & dd/mm/aaaa \\ \hline
 %4      & Se completa el plan	                                 & dd/mm/aaaa \\ \hline
 \end{tabularx}
 \end{table}
@@ -86,7 +86,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Lic. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', y consistirá esencialmente en la incorporación a la organización de nuevas herramientas para el desarrollo de soluciones que utilicen inteligencia artificial y análisis de datos, y que ofrezcan valor agregado a los clientes. Se tomará como prueba piloto el desarrollo de un modelo que prediga el nivel de riego de mortalidad de un paciente en un entorno médico. El mismo tendrá un presupuesto preliminar estimado de 600 h de trabajo y \textcolor{red}{\$2.800.000}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', y consistirá en el desarrollo de un modelo predictivo, como prueba piloto, que prediga el nivel de riesgo de mortalidad de un paciente que se encuentre en tratamiento de diálisis renal. Este desarrollo se enmarca en la actualización tecnológica de la organización \empclientename , donde se busca aplicar inteligencia artificial y análisis de datos a nuevos desarrollos que ofrezcan valor agregado a los clientes. El mismo tendrá un presupuesto preliminar estimado de 600 h de trabajo y \$3.864.000, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -109,17 +109,17 @@ Se adjunta a esta acta la planificación inicial.
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
-Este proyecto, planteado como trabajo final, se realizará para la organización Grupo DUAM en la cual trabajo, donde nos dedicamos a desarrollar software a medida para distintos clientes.
+Este proyecto, planteado como trabajo final, se realizará para la organización Grupo DUAM, la cual desarrolla software a medida para distintos clientes.
 El objetivo principal de este proyecto es incursionar en desarrollos que utilicen las nuevas tecnologías, como son la inteligencia artificial y el análisis de datos, con el fin de proporcionar soluciones innovadoras a problemas preexistentes.
-En esta línea, se tomó la decisión de colaborar con uno de nuestros clientes, una empresa médica que opera centros de atención en todo el país, para crear un primer prototipo que haga uso de estas tecnologías y que, al mismo tiempo, les aporte un valor agregado. Por razones de confidencialidad, no podemos revelar la identidad de nuestro cliente. Ellos poseen un sistema de gestión de pacientes donde registran datos médicos asociados a cada paciente, como son estudios médicos, hospitalizaciones, medicamentos prescritos, y muchos otros. Es fundamental en la medicina conocer el estado de salud de los pacientes y evaluar los riesgos asociados a ellos. Esto le permite a los profesionales de la salud ajustar el tratamiento y los medicamentos que  prescriben. Pero predecir los riesgos que puede tener un paciente no es tarea sencilla. La complejidad de las condiciones de salud y la gran cantidad de datos clínicos disponibles hacen extremadamente difícil realizar una predicción de mortalidad de manera manual.
+En esta línea, se tomó la decisión de colaborar con uno de sus clientes, una empresa médica que opera centros de atención en todo el país, para crear un primer prototipo que haga uso de estas tecnologías y que, al mismo tiempo, les aporte un valor agregado. Ellos poseen un sistema de gestión de pacientes donde registran datos médicos asociados a cada paciente, como son estudios médicos, hospitalizaciones, medicamentos prescritos, y muchos otros. Es fundamental en la medicina conocer el estado de salud de los pacientes y evaluar los riesgos asociados a ellos. Esto le permite a los profesionales de la salud ajustar el tratamiento y los medicamentos que  prescriben. Pero predecir los riesgos que puede tener un paciente no es tarea sencilla. La complejidad de las condiciones de salud y la gran cantidad de datos clínicos disponibles hacen extremadamente difícil realizar una predicción de mortalidad de manera manual.
 En este contexto, surge la idea de ofrecerles desarrollar un modelo predictivo de mortalidad que pueda aprovechar el poder de la inteligencia artificial y del análisis de datos, para realizar un pronóstico rápido y preciso del nivel de riesgo que tiene un paciente.
 
-En este trabajo, se propone partir por la creación de un modelo predictivo de mortalidad que nos sirva de ejemplo y nos permita ir desarrollando toda la infraestructura necesaria para que el modelo quede disponible para los usuarios. Parte de la infraestructura a desarrollar incluiría la utilización de una plataforma de gestión de modelos y el desarrollo de una interfaz por servicio web. Para el desarrollo de este modelo predictivo puntual, se contará con información de miles de pacientes que fueron atendidos por nuestro cliente y sirven de referencia para el proceso de entrenamiento. Se deberán procesar los datos disponibles, entrenar varios modelos de \textit{machine learning} y \textit{deep learning}, evaluar sus métricas y seleccionar los candidatos que logren los mejores resultados.
-El desarrollo de este tipo de modelos predictivos, administrados por una plataforma de gestión integral y accesibles por servicio web, nos permitirá adentrarnos en un mercado en constante evolución que demanda soluciones innovadoras. En la Figura \ref{fig:diagBloques} se muestra un diagrama de la solución propuesta para resolver el caso piloto.
+En este trabajo, se propone partir por la creación de un modelo predictivo de mortalidad que sirva de ejemplo y permita ir desarrollando toda la infraestructura necesaria para que el modelo quede disponible para los usuarios. Se utilizará una plataforma de gestión de modelos y se desarrollará una interfaz por servicio web y un proceso automatizado que solicite las predicciones. Para el desarrollo de este modelo predictivo puntual, se contará con información de miles de pacientes que fueron atendidos por esta empresa médica y sirven de referencia para el proceso de entrenamiento. Se deberán procesar los datos disponibles, entrenar varios modelos de \textit{machine learning} y \textit{deep learning}, evaluar sus métricas y seleccionar los candidatos que logren los mejores resultados.
+El desarrollo de este tipo de modelos predictivos, administrados por una plataforma de gestión integral y accesibles por servicio web, permitirá adentrarse en un mercado en constante evolución que demanda soluciones innovadoras. En la figura \ref{fig:diagBloques} se muestra un diagrama de la solución propuesta para resolver el caso piloto.
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.7\textwidth]{./Figuras/DiagramaDeBloques.pdf}
+\includegraphics[width=.8\textwidth]{./Figuras/DiagramaDeBloques.pdf}
 \caption{Diagrama en bloques del sistema}
 \label{fig:diagBloques}
 \end{figure}
@@ -128,8 +128,8 @@ Si bien parte del proyecto se limitará a dar solución a un problema puntual en
 El uso de la inteligencia artificial y el análisis de datos está en auge actualmente, y muchas industrias de distintos campos ya están logrando resultados exitosos. En la medicina ya se han utilizado para la predicción del desarrollo de enfermedades como la diabetes o el cáncer, y también para detectar formas extrañas en imágenes. 
 Esto se debe a que los modelos utilizados tienen la capacidad de reconocer patrones en grandes conjuntos de datos.
 Para poder generar predicciones es necesario utilizar datos históricos en el entrenamiento, donde los modelos descubren relaciones entre ellos. Luego, por métodos estadísticos, logran predecir eventos futuros basados en dichas relaciones.
-Dado que ya se cuenta con los datos históricos de miles de pacientes, este tipo de tecnología podría servir perfectamente para resolver la problemática actual de nuestro cliente. 
-El desarrollo de este proyecto tendría dos resultados importantes: dotar a nuestra organización de los conocimientos y herramientas necesarias para resolver problemas que requieran el uso de las nuevas tecnologías, y obtener un producto que resuelva una problemática real, ayudando al personal médico a guiar su trabajo sobre los pacientes más críticos y, en última instancia, salvar vidas.
+Dado que ya se cuenta con los datos históricos de miles de pacientes, este tipo de tecnología podría servir perfectamente para resolver la problemática actual de este cliente. 
+El desarrollo de este proyecto tendría dos resultados importantes: dotar a la organización de los conocimientos y herramientas necesarias para resolver problemas que requieran el uso de las nuevas tecnologías, y obtener un producto que resuelva una problemática real, ayudando al personal médico a guiar su trabajo sobre los pacientes más críticos y, en última instancia, salvar vidas.
 
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
@@ -143,15 +143,15 @@ El desarrollo de este proyecto tendría dos resultados importantes: dotar a nues
 Rol           & Nombre y Apellido & Organización   & Puesto        \\ \hline
 Cliente       & \begin{tabular}[c]{@{}l@{}}\clientename \\ Fabio Rosellini\end{tabular}      & \empclientename & Directores      \\ \hline
 Responsable   & \authorname       & FIUBA           & Alumno        \\ \hline
-Colaboradores & \begin{tabular}[c]{@{}l@{}}Colaborador 1 \\ Colaborador 2\end{tabular} &  Empresa Médica  & \begin{tabular}[c]{@{}l@{}}Gerente de Sistemas \\ Asesor de Presidencia\end{tabular} \\ \hline
+Colaboradores & \begin{tabular}[c]{@{}l@{}}Colaborador 1 \\ Colaborador 2\end{tabular} &  Empresa médica  & \begin{tabular}[c]{@{}l@{}}Gerente de sistemas \\ Asesor de presidencia\end{tabular} \\ \hline
 Orientador    & \supname          & \pertesupname    & Director Trabajo final \\ \hline
-Usuario final & Personal Médico y Administrativo   & Empresa Médica  & Usuario del sistema   \\ \hline
+Usuario final & Personal médico y administrativo   & Empresa médica  & Usuario del sistema   \\ \hline
 \end{tabularx}
 \end{table}
 
 \begin{itemize}
-	\item Cliente: Está a favor del desarrollo de este proyecto para impulsar la organización a nuevos mercados y/o ofrecerle desarrollos innovadores a los clientes actuales.
-	\item Colaboradores: El Asesor de presidencia no tiene mucho tiempo para dedicarle al proyecto, pero puede aportar conocimientos médicos para seleccionar las características mas importantes que tengan relación con la mortalidad de los pacientes. Está a favor del desarrollo del proyecto y aportará lo que sea necesario. El Gerente de Sistemas tampoco tiene mucho tiempo para dedicarle al proyecto, pero es quien nos dará permiso para la utilización de los datos. Como no solicitó el desarrollo del proyecto puede que demore en responder si se le consulta algo referido a la infraestructura.
+	\item Cliente: está a favor del desarrollo de este proyecto para impulsar la organización a nuevos mercados y/o ofrecerle desarrollos innovadores a los clientes actuales.
+	\item Colaboradores: el asesor de presidencia no tiene mucho tiempo para dedicarle al proyecto, pero puede aportar conocimientos médicos para seleccionar las características más importantes que tengan relación con la mortalidad de los pacientes. Está a favor del desarrollo del proyecto y aportará lo que sea necesario. El gerente de sistemas tampoco tiene mucho tiempo para dedicarle al proyecto, pero es quien dará el permiso para la utilización de los datos. Como no solicitó el desarrollo del proyecto puede que demore en responder si se le consulta algo referido a la infraestructura.
 	\item Orientador: Puede ayudar mucho en el tratamiento de los datos antes de entrenar los modelos.
 	\item Usuario final: Necesitará que la predicciones que realiza el modelo estén disponibles en todo momento.
 \end{itemize}
@@ -160,7 +160,7 @@ Usuario final & Personal Médico y Administrativo   & Empresa Médica  & Usuario
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
 
-El propósito principal de este proyecto es dotar a nuestra organización de nuevas herramientas y capacidades en el ámbito de la inteligencia artificial y el análisis de datos, para poder ofrecer soluciones innovadoras a clientes nuevos o existentes, y poder insertarnos en un mercado que se encuentra en constante crecimiento. 
+El propósito principal de este proyecto es dotar a la organización de nuevas herramientas y capacidades en el ámbito de la inteligencia artificial y el análisis de datos, para poder ofrecer soluciones innovadoras a clientes nuevos o existentes, y poder insertarse en un mercado que se encuentra en constante crecimiento. 
 
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
@@ -172,8 +172,8 @@ Una vez que se cuente con un modelo entrenado, se realizarán las tareas referid
 Con el fin de automatizar la llamada al modelo, se desarrollará también un proceso que envíe automáticamente pedidos de predicciones de todos los pacientes activos cada cierto tiempo al modelo, para que el usuario final cuente con un reporte actualizado en todo momento.
 El resultado del modelo podrá ser binario (hay riesgo o no hay riesgo), o categórico, devolviendo un grado de riesgo para ese paciente. Esto se definirá luego de realizar un análisis de los datos disponibles y de los modelos seleccionados para el entrenamiento.
 
-El presente proyecto no incluye el desarrollo de una plataforma de gestión, sino que se elegirá una existente que cumpla con los requerimientos del proyecto. No se desarrollará una interfaz web orientada al usuario final, sino que se desarrollará un servicio web que sea utilizado por procesos automáticos. No se incluirán procesos que disparen el re-entrenamiento automático ante cambios en los datos. El re-entrenamiento del modelo se realizará manualmente por un operador cuando sea necesario.
-No se incluye la instalación del modelo predictivo en el entorno productivo de nuestro cliente, sino que para el proyecto presentado para este posgrado, se trabajará en un entorno propio de Grupo DUAM que incluirá la plataforma de gestión de modelos, el modelo predictivo y la interfaz por servicio web. Lo único que se instalará en el entorno del cliente será el proceso que recupere datos de los pacientes y llame al servicio web cada cierto período de tiempo para recuperar las predicciones. Esto debe aclararse ya que la instalación de toda la infraestructura en el entorno del cliente no es el objetivo principal de este proyecto, y podría dejarse a cargo del equipo de sistemas del cliente.
+El presente proyecto no incluye el desarrollo de una plataforma de gestión, sino que se elegirá una existente que cumpla con los requerimientos del proyecto. No se desarrollará una interfaz web orientada al usuario final, sino que se desarrollará un servicio web que sea utilizado por procesos automáticos. No se incluirá un proceso de re-entrenamiento automático del modelo.
+No se incluye la instalación del modelo predictivo en el entorno productivo de la empresa médica, sino que para el proyecto presentado para este posgrado, se trabajará en un entorno propio de Grupo DUAM que incluirá la plataforma de gestión de modelos, el modelo predictivo y la interfaz por servicio web. Lo único que se instalará en el entorno de la empresa médica será el proceso que recupere datos de los pacientes y llame al servicio web cada cierto período de tiempo para recuperar las predicciones. Esto debe aclararse ya que la instalación en producción de toda la infraestructura no es el objetivo principal de este proyecto, y podría dejarse a cargo del equipo de sistemas de la empresa médica.
 
 \section{5. Supuestos del proyecto}
 \label{sec:supuestos}
@@ -197,7 +197,7 @@ Para el desarrollo del presente proyecto se supone que:
 \begin{enumerate}
 	\item Requerimientos funcionales
 		\begin{enumerate}
-			\item La plataforma de gestión de modelos deberá permitir desplegar modelos en diversos ambientes y disparar un proceso manual de re-entrenamiento cuando sea necesario.
+			\item La plataforma de gestión de modelos deberá permitir desplegar modelos en diversos ambientes.
 			\item La interfaz por servicio web deberá recibir datos médicos de uno o varios pacientes y devolver las predicciones asociadas a ellos.			
 			\item El modelo predictivo deberá tener una precisión de al menos un 75\%.
 			\item El proceso que solicita predicciones y genera el reporte al usuario deberá poder ejecutarse automáticamente cada cierto período de tiempo.		
@@ -212,7 +212,7 @@ Para el desarrollo del presente proyecto se supone que:
 		\begin{enumerate}
 			\item Redactar una memoria técnica con la información del proyecto.
 			\item La documentación de la interfaz por servicio web deberá incluir la lista de métodos disponibles con su detalle.
-			\item La documentación del modelo predictivo incluirá cual es el origen de la fuente de datos para el entrenamiento,  las características que se usarán y los pasos para ejecutar un re-entrenamiento del modelo.
+			\item La documentación del modelo predictivo incluirá información sobre el origen de los datos utilizados para el entrenamiento, las características que se usaron, el detalle del modelo seleccionado y la información que haya sobre la explicabilidad del modelo.
 		\end{enumerate}		
 \end{enumerate}
 
@@ -257,41 +257,46 @@ El puntaje final de cada historia de usuario será calculado como el número de 
 Los entregables del proyecto son:
 
 \begin{itemize}
-	\item Documentación del servicio web
-	\item Documentación del modelo predictivo 
-	\item Modelo predictivo de mortalidad
-	\item Plataforma de gestión de modelos correctamente configurada
-	\item Interfaz por web servicie	
+	\item Documentación del servicio web.
+	\item Documentación del modelo predictivo. 
+	\item Modelo predictivo de mortalidad.
+	\item Plataforma de gestión de modelos correctamente configurada.
+	\item Interfaz por servicio web.
 	\item Proceso que solicite predicciones y arme un reporte para el usuario de forma automática.
-	\item Informe final
+	\item Informe final.
 \end{itemize}
 
 \section{9. Desglose del trabajo en tareas}
 \label{sec:wbs}
 
 \begin{enumerate}
-\item Desarrollo del modelo predictivo de mortalidad (270 h).
+\item Desarrollo del modelo predictivo de mortalidad (280 h).
 	\begin{enumerate}
-	\item Extracción y procesamiento de datos médicos (90 h).
-	\item Entrenamiento de modelos (120 h).
+	\item Investigación sobre variables médicas que tienen influencia en la mortalidad (20 h).
+	\item Extracción de datos médicos de la base de datos (40 h).
+	\item Procesamiento de datos médicos (40 h).
+	\item Entrenamiento de modelos de \textit{machine learning}(40 h).
+	\item Entrenamiento de modelos de \textit{deep learning}(40 h).
 	\item Evaluación de métricas de los modelos (40 h).
 	\item Selección de los modelos candidatos (20 h).
+	\item Ajuste fino de los modelos seleccionados (40 h).	
 	\end{enumerate}
 \item Desarrollo de la interfaz por servicio web (80 h).
 	\begin{enumerate}
 	\item Diseño de la interfaz (20 h).
-	\item Implementación de la interfaz (60 h).
+	\item Implementación de la interfaz (40 h).
+	\item Pruebas sobre la interfaz para obtener predicciones (20 h).	
 	\end{enumerate}
-\item Instalación y configuración de la plataforma de gestión de modelos (120 h).
+\item Instalación y configuración de la plataforma de gestión de modelos (60 h).
 	\begin{enumerate}
 	\item Investigación de plataformas de gestión de modelos disponibles (10 h).
 	\item Instalación de plataforma de gestión seleccionada (30 h).
 	\item Configuración de ambientes para despliegue de modelos (20 h).
-	\item Creación de un archivo que automatice el re-entrenamiento del modelo (60 h).
 	\end{enumerate}
 \item Desarrollo del proceso automático para solicitar predicciones y generar reportes (80 h).
 	\begin{enumerate}
-	\item Desarrollo del proceso que recupere datos, llame al servicio web y genere el reporte (60 h).
+	\item Diseño del proceso que solicita predicciones automáticamente (20 h).
+	\item Desarrollo del proceso que solicita predicciones automáticamente (40 h).
 	\item Pruebas de automatización de llamadas al modelo (20 h).
 	\end{enumerate}
 \item Documentación (100 h).
@@ -303,102 +308,54 @@ Los entregables del proyecto son:
 	\end{enumerate}
 \end{enumerate}
 
-Cantidad total de horas: 650 h
+Cantidad total de horas: 600 h
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
 
-\begin{consigna}{red}
-Armar el AoN a partir del WBS definido en la etapa anterior. 
+A continuación, se realiza una breve descripción del Diagrama de Activity On Node que se muestra en la figura \ref{fig:AoN}:
 
-%La figura \ref{fig:AoN} fue elaborada con el paquete latex tikz y pueden consultar la siguiente referencia \textit{online}:
-
-%\url{https://www.overleaf.com/learn/latex/LaTeX_Graphics_using_TikZ:_A_Tutorial_for_Beginners_(Part_3)\%E2\%80\%94Creating_Flowcharts}
-
-\end{consigna}
+\begin{itemize}
+	\item Las tareas de desarrollo del modelo predictivo son las primeras que debe realizarse, ya que de ellas dependen otras actividades como el desarrollo de la interfaz o el desarrollo del proceso automático. 
+	\item Las tareas de instalación y configuración de la plataforma de gestión de modelos puede iniciarse junto con el desarrollo del modelo, pero no podrá finalizar hasta que se cuente con el modelo final.
+	\item A medida que las tareas de desarrollo vayan finalizado, se documentarán los productos terminados.
+\end{itemize}
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.8\textwidth]{./Figuras/AoN.png}
-\caption{Diagrama de \textit{Activity on Node}.}
+\includegraphics[width=0.99\textwidth]{./Figuras/AoN_Extendido.pdf}
+\caption{Diagrama de \textit{Activity on Node} con su camino crítico marcado en negrita}
 \label{fig:AoN}
 \end{figure}
 
-Indicar claramente en qué unidades están expresados los tiempos.
-De ser necesario indicar los caminos semicríticos y analizar sus tiempos mediante un cuadro.
-Es recomendable usar colores y un cuadro indicativo describiendo qué representa cada color, como se muestra en el siguiente ejemplo:
-
+El camino crítico nos muestra que como mínimo se requieren 450 horas para finalizar el proyecto.
 
 
 \section{11. Diagrama de Gantt}
 \label{sec:gantt}
 
-\begin{consigna}{red}
+En la figura \ref{fig:diagGantt01}, se muestra la tabla del Diagrama de Gantt y en la figura \ref{fig:diagGantt02} se muestran las tareas desplegadas sobre la linea de tiempo.
 
-Existen muchos programas y recursos \textit{online} para hacer diagramas de Gantt, entre los cuales destacamos:
-
-\begin{itemize}
-\item Planner
-\item GanttProject
-\item Trello + \textit{plugins}. En el siguiente link hay un tutorial oficial: \\ \url{https://blog.trello.com/es/diagrama-de-gantt-de-un-proyecto}
-\item Creately, herramienta online colaborativa. \\\url{https://creately.com/diagram/example/ieb3p3ml/LaTeX}
-\item Se puede hacer en latex con el paquete \textit{pgfgantt}\\ \url{http://ctan.dcc.uchile.cl/graphics/pgf/contrib/pgfgantt/pgfgantt.pdf}
-\end{itemize}
-
-Pegar acá una captura de pantalla del diagrama de Gantt, cuidando que la letra sea suficientemente grande como para ser legible. 
-Si el diagrama queda demasiado ancho, se puede pegar primero la ``tabla'' del Gantt y luego pegar la parte del diagrama de barras del diagrama de Gantt.
-
-Configurar el software para que en la parte de la tabla muestre los códigos del EDT (WBS).\\
-Configurar el software para que al lado de cada barra muestre el nombre de cada tarea.\\
-Revisar que la fecha de finalización coincida con lo indicado en el Acta Constitutiva.
-
-En la figura \ref{fig:gantt}, se muestra un ejemplo de diagrama de Gantt realizado con el paquete de \textit{pgfgantt}. En la plantilla pueden ver el código que lo genera y usarlo de base para construir el propio.
-
-\begin{figure}[htbp]
-\begin{center}
-\begin{ganttchart}{1}{12}
-  \gantttitle{2020}{12} \\
-  \gantttitlelist{1,...,12}{1} \\
-  \ganttgroup{Group 1}{1}{7} \\
-  \ganttbar{Task 1}{1}{2} \\
-  \ganttlinkedbar{Task 2}{3}{7} \ganttnewline
-  \ganttmilestone{Milestone o hito}{7} \ganttnewline
-  \ganttbar{Final Task}{8}{12}
-  \ganttlink{elem2}{elem3}
-  \ganttlink{elem3}{elem4}
-\end{ganttchart}
-\end{center}
-\caption{Diagrama de Gantt de ejemplo}
-\label{fig:gantt}
+\begin{figure}[htpb]
+\centering 
+\includegraphics[height=.8\textheight]{./Figuras/Gantt-1.png}
+\caption{Tabla del Diagrama de Gantt}
+\label{fig:diagGantt01}
 \end{figure}
 
 
 \begin{landscape}
 \begin{figure}[htpb]
 \centering 
-\includegraphics[height=.85\textheight]{./Figuras/Gantt-2.png}
-\caption{Ejemplo de diagrama de Gantt rotado}
-\label{fig:diagGantt}
+\includegraphics[height=.9\textheight]{./Figuras/Gantt-2.png}
+\caption{Diagrama de Gantt}
+\label{fig:diagGantt02}
 \end{figure}
 
 \end{landscape}
 
-\end{consigna}
-
-
 \section{12. Presupuesto detallado del proyecto}
 \label{sec:presupuesto}
-
-\begin{consigna}{red}
-Si el proyecto es complejo entonces separarlo en partes:
-\begin{itemize}
-	\item Un total global, indicando el subtotal acumulado por cada una de las áreas.
-	\item El desglose detallado del subtotal de cada una de las áreas.
-\end{itemize}
-
-IMPORTANTE: No olvidarse de considerar los COSTOS INDIRECTOS.
-
-\end{consigna}
 
 \begin{table}[htpb]
 \centering
@@ -411,24 +368,13 @@ Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
+  
+ Mano de Obra &
+  \multicolumn{1}{c|}{600 h} &
+  \multicolumn{1}{c|}{\$4.600/h} &
+  \multicolumn{1}{c|}{\$2.760.000} \\ \hline
 \multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
+  \multicolumn{1}{c|}{\$2.760.000} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 \multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS INDIRECTOS} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
@@ -436,22 +382,14 @@ Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
+\multicolumn{1}{|l|}{40 \% Costos Indirectos} &
+ \multicolumn{1}{c|}{600 h} &
+  \multicolumn{1}{c|}{\$1.840/h} &
+  \multicolumn{1}{c|}{\$1.104.000} \\ \hline
 \multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
+  \multicolumn{1}{c|}{\$1.104.000} \\ \hline
 \rowcolor[HTML]{C0C0C0}
-\multicolumn{3}{|c|}{TOTAL} &
+\multicolumn{3}{|c|}{TOTAL} & \$3.864.000
    \\ \hline
 \end{tabularx}%
 \end{table}
