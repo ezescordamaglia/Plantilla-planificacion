@@ -33,8 +33,8 @@
 \pertenenciaJurTres{pertenencia (3)}
  
 \fechaINICIO{17 de octubre de 2023}		%Fecha de inicio de la cursada de GdP \fechaInicioName
-\fechaFINALPlan{--------COMPLETAR---------} 	%Fecha de final de cursada de GdP
-\fechaFINALTrabajo{--------COMPLETAR---------}	%Fecha de defensa pública del trabajo final
+\fechaFINALPlan{5 de diciembre de 2023} 	%Fecha de final de cursada de GdP
+\fechaFINALTrabajo{7 de junio de 2024}	%Fecha de defensa pública del trabajo final
 
 
 \begin{document}
@@ -66,10 +66,7 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios 
 1      & Se completa hasta el punto 4 inclusive                 & 26 de octubre de 2023 \\ \hline
 2      & Se completa hasta el punto 9 inclusive					& 3 de noviembre de 2023 \\ \hline
 3      & Se completa hasta el punto 12 inclusive                & 13 de noviembre de 2023 \\ \hline
-%		  Se puede agregar algo más \newline
-%		  En distintas líneas \newline
-%		  Así                                                    & dd/mm/aaaa \\ \hline
-%4      & Se completa el plan	                                 & dd/mm/aaaa \\ \hline
+4      & Se completa el plan	                                & 20 de noviembre de 2023 \\ \hline
 \end{tabularx}
 \end{table}
 
@@ -188,7 +185,7 @@ Para el desarrollo del presente proyecto se supone que:
 	\item Se tiene acceso a los datos médicos de los pacientes.
 	\item Se cuenta con un conjunto inicial de datos lo suficientemente grande y representativo para entrenar los modelos de inteligencia artificial de manera efectiva.
 	\item Se cuenta con el apoyo de un responsable médico que dé soporte en la selección de variables médicas a utilizar en el entrenamiento de los modelos y también en la interpretación clínica de las predicciones realizadas.
-	\item Se mantendrá la protección de datos sensibles de los pacientes y de nuestro cliente en todo momento.		
+	\item Se mantendrá la protección de datos sensibles de los pacientes y de la empresa médica en todo momento.		
 \end{itemize}
 
 \section{6. Requerimientos}
@@ -202,10 +199,10 @@ Para el desarrollo del presente proyecto se supone que:
 			\item El modelo predictivo deberá tener una precisión de al menos un 75\%.
 			\item El proceso que solicita predicciones y genera el reporte al usuario deberá poder ejecutarse automáticamente cada cierto período de tiempo.		
 			\item El reporte de predicciones que le llegue al usuario final deberá tener un formato claro y comprensible.
+			\item Se utilizará GIT como repositorio para el control de version de código
 		\end{enumerate}
 	\item Requerimientos de datos a utilizar
 		\begin{enumerate}		
-		\item Los datos a utilizar para el entrenamiento del modelo deben estar disponibles para los procesos automáticos que re-entrenen al modelo.
 		\item Durante el entrenamiento del modelo se deberá resguardar la confidencialidad de los datos de los pacientes.		
 		\end{enumerate}
 	\item Requerimientos de documentación
@@ -398,29 +395,37 @@ Descripción &
 \section{13. Gestión de riesgos}
 \label{sec:riesgos}
 
-\begin{consigna}{red}
-a) Identificación de los riesgos (al menos cinco) y estimación de sus consecuencias:
- 
-Riesgo 1: detallar el riesgo (riesgo es algo que si ocurre altera los planes previstos de forma negativa)
+a) Para la estimación de severidad y probabilidad de ocurrencia de los riesgos del trabajo se utilizó una escala de 1 a 10, donde 10 es el valor máximo posible para cada índice. Dentro de los riesgos detectados se encuentran:
+
+Riesgo 1: no disponer de un conjunto de datos adecuado para el entrenamiento del modelo.
 \begin{itemize}
-	\item Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de (O). 
+	\item Severidad (S): este riesgo tiene una severidad alta, ya que si no se cuenta con un conjunto de datos lo suficientemente grande, el modelo no podrá generalizar el conocimiento y realizar predicciones precisas. (9)
+	\item Probabilidad de ocurrencia (O): la probabilidad de que el riesgo suceda es baja, ya que la empresa médica registra datos de pacientes desde hace mas de 10 años y cuentan con una base de datos de cerca de 10.000 pacientes. (3)
 \end{itemize}   
 
-Riesgo 2:
+Riesgo 2: no lograr que el modelo entrenado realice predicciones correctas.
 \begin{itemize}
-	\item Severidad (S): 
-	\item Ocurrencia (O):
-\end{itemize}
+	\item Severidad (S): este riesgo tiene una severidad alta, ya que si el modelo no realiza predicciones correctas el usuario dejará de confiar en la información generada y rechazará el producto. (10)
+	\item Probabilidad de ocurrencia (O): la probabilidad de que el riesgo suceda es baja, ya que existen muchas técnicas para procesar los datos y muchos modelos con estructuras distintas para entrenar, de cuyas combinaciones se espera encontrar una que genere buenas predicciones. (4)
+\end{itemize} 
 
-Riesgo 3:
+Riesgo 3: falta de colaboración por parte de los médicos interesados para la selección de variables que tengan relación con la mortalidad.
 \begin{itemize}
-	\item Severidad (S): 
-	\item Ocurrencia (O):
-\end{itemize}
+	\item Severidad (S): este riesgo tiene una severidad baja, ya que aunque no se cuente con asesoramiento médico para la selección de características del conjunto de datos, se puede abordar el problema desde el punto de vista estadístico, aplicando las técnicas de procesamiento de datos adecuada para cada variable. El proceso de entrenamiento requerirá mas tiempo, ya que se deberán hacer mas pruebas para encontrar el conjunto de características que ayuden al modelo a generalizar el conocimiento y generar predicciones correctas. (4)
+	\item Probabilidad de ocurrencia (O): la probabilidad de que el riesgo suceda es media. Si bien el asesor de presidencia, principal interesado en el modelo predictivo, dispone de poco tiempo para el proyecto, se puede mantener un contacto asincrónico para ayudar a que el proyecto avance sin ocupar demasiado tiempo. (5)
+\end{itemize} 
 
+Riesgo 4: pérdida o daño en los archivos del proyecto.
+\begin{itemize}
+	\item Severidad (S): este riesgo tiene una severidad alta, ya que si se pierden o dañan los archivos del proyecto habrá que comenzarlo de nuevo, perdiendo gran parte del trabajo realizado. (8)
+	\item Probabilidad de ocurrencia (O): la probabilidad de que el riesgo suceda es baja, ya que los archivos del proyecto se pueden subir en repositorios remotos y mantener copias de seguridad para evitar su perdida o daño. (2)
+\end{itemize} 
+
+Riesgo 5: no finalizar las tareas según las fechas planificadas.
+\begin{itemize}
+	\item Severidad (S): este riesgo tiene una severidad baja, ya que mientras se cumpla el objetivo principal del proyecto se puede admitir una demora en la finalización del proyecto. (1)
+	\item Probabilidad de ocurrencia (O): la probabilidad de que el riesgo suceda es media, ya que es el primer proyecto que se desarrolla utilizando estas tecnologías y pueden existir algunas demoras que extiendan los plazos definidos. (5)
+\end{itemize}
 
 b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
 
@@ -430,71 +435,101 @@ b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
+No disponer de un conjunto de datos adecuado para el entrenamiento del modelo & 9 & 3 & 27 & 9* & 2* & 18* \\ \hline
+No lograr que el modelo entrenado realice predicciones correctas & 10 & 4 & 40 & 10* & 2* & 20* \\ \hline
+Falta de colaboración por parte de los médicos interesados para la selección de variables que tengan relación con la mortalidad        & 4 & 5 & 20 & - & - & - \\ \hline
+Pérdida o daño en los archivos del proyecto & 8 & 2 & 16 & - & - & - \\ \hline
+No finalizar las tareas según las fechas planificadas & 1  & 5 & 5 & - & - & - \\ \hline
 \end{tabularx}%
 \end{table}
 
 Criterio adoptado: 
-Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a...
+Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a 20
 
 Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación.
 
 c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
- 
-Riesgo 1: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
-  Nueva asignación de S y O, con su respectiva justificación:
-  - Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de severidad (S).
-  - Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de (O).
 
-Riesgo 2: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
- 
-Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
+Riesgo 1. No disponer de un conjunto de datos adecuado para el entrenamiento del modelo: el plan de mitigación para este riesgo consiste en aumentar la cantidad de datos disponibles con una técnica conocida como \textit{"data augmentation"}, donde se generan nuevos datos a partir de los datos existentes para ayudar al modelo a generalizar el conocimiento.
+\begin{itemize}
+	\item Severidad (S): la severidad se mantiene alta, ya que si se aplican las técnicas de aumento de datos y aún así no se tienen datos suficientes para entrenar al modelo, no se lograrían predicciones correctas. (9)
+	\item Probabilidad de ocurrencia (O): Baja levemente la probabilidad de ocurrencia de este riesgo, ya que la técnica aplicada para mitigar el riesgo suele usarse para estos casos y brinda buenos resultados.(2)
+\end{itemize}
 
-\end{consigna}
-
+Riesgo 2. No lograr que el modelo entrenado realice predicciones correctas: el plan de mitigación para este riesgo consiste en investigar que modelos suelen ser mejores para resolver este tipo de problemas, trabajar conjuntamente con personal médico para seleccionar las características mas importantes del conjunto de datos y dedicarle tiempo extra a los entrenamientos de los modelos con el fin de lograr buenos resultados.
+\begin{itemize}
+	\item Severidad (S): la severidad se mantiene alta, ya que si se elijen los modelos mas apropiados, se seleccionan las características mas importantes y se dedica tiempo extra sin obtener buenos resultados, el modelo no será útil. (10)
+	\item Probabilidad de ocurrencia (O): Baja levemente la probabilidad de ocurrencia de este riesgo, ya que si se busca la información correcta, se investigan resoluciones de casos similares, y se dedica mas tiempo al entrenamiento del modelo, es probable que se consigan mejores resultados.(2)
+\end{itemize}
 
 \section{14. Gestión de la calidad}
 \label{sec:calidad}
 
-\begin{consigna}{red}
-Elija al menos diez requerientos que a su criterio sean los más importantes/críticos/que aportan más valor y para cada uno de ellos indique las acciones de verificación y validación que permitan asegurar su cumplimiento.
+ Verificación para confirmar si se cumplió con lo requerido antes de mostrar el sistema al cliente. Detallar 
+ Validación con el cliente para confirmar que está de acuerdo en que se cumplió con lo requerido. Detallar  
 
-\begin{itemize} 
-\item Req \#1: copiar acá el requerimiento.
 
 \begin{itemize}
-	\item Verificación para confirmar si se cumplió con lo requerido antes de mostrar el sistema al cliente. Detallar 
-	\item Validación con el cliente para confirmar que está de acuerdo en que se cumplió con lo requerido. Detallar  
+	\item Req \#1.1: La plataforma de gestión de modelos deberá permitir desplegar modelos en diversos ambientes.
+	\begin{itemize}
+		\item Verificación: verificar la configuración de la plataforma de despliegue para comprobar que se toma la última versión del modelo y se despliega en el ambiente seleccionado.
+		\item Validación: ingresar a la plataforma con un usuario y contraseña y hacer clic en un botón que despliegue el modelo en el ambiente configurado. 
+	\end{itemize}
+	\item Req \#1.2: La interfaz por servicio web deberá recibir datos médicos de uno o varios pacientes y devolver las predicciones asociadas a ellos.	
+	\begin{itemize}
+		\item Verificación: realizar pruebas de llamada a la interfaz por servicio web, enviando datos de uno o varios pacientes, y recibir las predicciones.
+		\item Validación: ejecutar el proceso automático que genera las predicciones de todos los pacientes activos y mostrar a los usuarios de la empresa médica el reporte generado.
+	\end{itemize}			
+	\item Req \#1.3: El modelo predictivo deberá tener una precisión de al menos un 75\%.
+	\begin{itemize}
+		\item Verificación: realizar las inferencias del set de datos de \textit{test} y verificar que la métrica "precisión" del modelo se encuentre dentro de los valores aceptables.
+		\item Validación: realizar un gráfico con los valores obtenidos para cada métrica y validar que la métrica "precisión" del modelo se encuentre dentro de los valores aceptables.
+	\end{itemize}
+	\item Req \#1.4: El proceso que solicita predicciones y genera el reporte al usuario deberá poder ejecutarse automáticamente cada cierto período de tiempo.		
+	\begin{itemize}
+		\item Verificación: configurar el proceso automático para que se ejecute cada un minuto, esperar dicho tiempo y verificar que se haya ejecutado el proceso y generado el reporte.
+		\item Validación: esperar a que el proceso se ejecute automáticamente en el tiempo establecido y validar que se genera el reporte correctamente.
+	\end{itemize}
+	\item Req \#1.5: El reporte de predicciones que le llegue al usuario final deberá tener un formato claro y comprensible.
+	\begin{itemize}
+		\item Verificación: ejecutar el proceso automático que genera el reporte de predicciones y verificar que se pueda abrir el archivo y tenga un formato correcto.
+		\item Validación: generar el reporte de predicciones y enviar a los usuarios de la empresa médica para que validen si el formato es correcto.
+	\end{itemize}
+	\item Req \#1.6: Se utilizará GIT como repositorio para el control de version de código.
+	\begin{itemize}
+		\item Verificación: revisar repositorio en la nube para verificar que se encuentra subida la última versión del código fuente.
+		\item Validación: compartir acceso al repositorio al gerente de sistemas de la empresa médica para visualizar el código fuente.
+	\end{itemize}	
+	\item Req \#2.1: Durante el entrenamiento del modelo se deberá resguardar la confidencialidad de los datos de los pacientes.	
+	\begin{itemize}
+		\item Verificación: almacenar los datos únicamente en directorios privados de Grupo DUAM o de la empresa médica.
+		\item Validación: compartir ubicación de los datos solamente al equipo de desarrollo de Grupo DUAM y al equipo de sistemas de la empresa médica.
+	\end{itemize}
+	\item Req \#3.1: Redactar una memoria técnica con la información del proyecto.
+	\begin{itemize}
+		\item Verificación: escribir una memoria a medida que se avanza con el proyecto.
+		\item Validación: compartir la memoria técnica con la organización Grupo DUAM.
+	\end{itemize}
+	\item Req \#3.2: La documentación de la interfaz por servicio web deberá incluir la lista de métodos disponibles con su detalle.
+	\begin{itemize}
+		\item Verificación: escribir documento que incluya el detalle de cada método desarrollado una vez que se desarrolle la interfaz.
+		\item Validación: compartir la documentación de la interfaz con la organización Grupo DUAM y con la empresa médica.
+	\end{itemize}
+	\item Req \#3.3: La documentación del modelo predictivo incluirá información sobre el origen de los datos utilizados para el entrenamiento, las características que se usaron, el detalle del modelo seleccionado y la información que haya sobre la explicabilidad del modelo.
+	\begin{itemize}
+		\item Verificación: escribir documentación con detalles del proceso de entrenamiento y características del modelo seleccionado.
+		\item Validación: compartir documentación del modelo predictivo con la organización Grupo DUAM y con la empresa médica.
+	\end{itemize}
 \end{itemize}
-
-\end{itemize}
-
-Tener en cuenta que en este contexto se pueden mencionar simulaciones, cálculos, revisión de hojas de datos, consulta con expertos, mediciones, etc.  Las acciones de verificación suelen considerar al entregable como ``caja blanca'', es decir se conoce en profundidad su funcionamiento interno.  En cambio, las acciones de validación suelen considerar al entregable como ``caja negra'', es decir, que no se conocen los detalles de su funcionamiento interno.
-
-\end{consigna}
 
 \section{15. Procesos de cierre}    
 \label{sec:cierre}
 
-\begin{consigna}{red}
-Establecer las pautas de trabajo para realizar una reunión final de evaluación del proyecto, tal que contemple las siguientes actividades:
-
 \begin{itemize}
-	\item Pautas de trabajo que se seguirán para analizar si se respetó el Plan de Proyecto original:
-	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento a aplicar. 
-	\item Identificación de las técnicas y procedimientos útiles e inútiles que se emplearon, y los problemas que surgieron y cómo se solucionaron:
-	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento para dejar registro.
-	\item Indicar quién organizará el acto de agradecimiento a todos los interesados, y en especial al equipo de trabajo y colaboradores:
-	  - Indicar esto y quién financiará los gastos correspondientes.
+	\item Reunión por videollamada con el director del proyecto con el fin de analizar las conclusiones sobre el resultado final del proyecto y las lecciones aprendidas para tener en cuenta en trabajos posteriores.
+	\item El responsable del proyecto será quien se ocupe de redactar una minuta de la reunión por videollamada, así como también tomar nota en una planilla sobre que herramientas y procesos fueron útiles, cuáles no y el motivo.
+	\item Se presentará el trabajo final por el \authorname\hspace{1px} donde se agradecerá a todas las personas involucradas en el proyecto, miembros del jurado, docentes y autoridades de la CEIA.
 \end{itemize}
-
-\end{consigna}
 
 
 \end{document}
